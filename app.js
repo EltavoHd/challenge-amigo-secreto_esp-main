@@ -6,11 +6,12 @@ let numeroGenerado = "";
 function limpieza(id) {
     let campo = document.getElementById(id);
     if (campo) {
-        campo.innerHTML = "";  // Limpia si el elemento existe
+        campo.innerHTML = "";  // Limpia todo el contenido del elemento (lista, div, etc.)
     } else {
         console.warn(`No se encontró un elemento con el ID: ${id}`);
     }
 }
+
 
 function aleatorios() {
     let aleatorio =  Math.floor(Math.random()*numeroMaximo)+1;
@@ -43,17 +44,20 @@ function mostrarAmigos() {
             console.log(numeroGenerado)
         }
 
-        function sortearAmigo(){ 
-            if (namex.length == 0) { 
-                alert ("Por Favor Ingrese un Amigo!!!") ;
+        function sortearAmigo() { 
+            if (namex.length === 0) { 
+                alert("¡Por favor, ingrese un amigo!");
+                return; 
             }
-            const seleccion = Math.floor(Math.random()*namex.length)
-            const eleccion = namex[seleccion]
             
-            const respuesta = document.getElementById(`resultado`);
-            respuesta.textContent = `Su Amigo Secreto es : ${eleccion} `;
-            alert(`Su Amigo Secreto es : ${eleccion} `);
+            const seleccion = Math.floor(Math.random() * namex.length);
+            const eleccion = namex[seleccion];
             
-            limpieza(`amigo`);
-       
-        } 
+            const respuesta = document.getElementById("resultado");
+            respuesta.textContent = `Su Amigo Secreto es: ${eleccion}`;
+            
+            alert(`Su Amigo Secreto es: ${eleccion}`);
+            
+            limpieza("listaAmigos");  
+        }
+        
