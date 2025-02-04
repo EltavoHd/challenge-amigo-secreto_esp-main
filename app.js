@@ -11,6 +11,14 @@ function limpieza(id) {
         console.warn(`No se encontró un elemento con el ID: ${id}`);
     }
 }
+function limpiarLista() {
+    const lista = document.getElementById("listaAmigos");
+    
+    // Mientras la lista tenga un hijo (<li>), elimínalo
+    while (lista.firstChild) {
+        lista.removeChild(lista.firstChild);
+    }
+}
 
 
 function aleatorios() {
@@ -32,7 +40,7 @@ function mostrarAmigos() {
 }
 
         function agregarAmigo() {
-            limpieza("listaAmigos"); 
+            limpiarLista();
             let input = document.querySelector("#amigo");  // Obtengo el input
             let nombre = input.value.trim();               // Obtengo el valor del input
                     if (nombre) {  // Verifico que no esté vacío
