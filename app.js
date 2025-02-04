@@ -32,6 +32,7 @@ function mostrarAmigos() {
 }
 
         function agregarAmigo() {
+            limpieza(listaAmigos)
             let input = document.querySelector("#amigo");  // Obtengo el input
             let nombre = input.value.trim();               // Obtengo el valor del input
                     if (nombre) {  // Verifico que no esté vacío
